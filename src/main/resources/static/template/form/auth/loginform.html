@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text">
+        <strong>Login Form</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text">
+        <form class="form-horizontal" [ngFormModel]="loginForm">
+            <div class="form-group has-feedback"
+                 [ngClass]="{'has-success' : login_loginId.valid, 'has-error' : !login_loginId.valid}">
+                <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-users" aria-hidden="true"></i></span>
+                    <input class="form-control" type="text" placeholder="Login ID" id="login_loginId" ngControl="login_loginId" required></div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"
+                      [ngClass]="{'glyphicon-ok': login_loginId.valid, 'glyphicon-warning-sign': !login_loginId.valid}"></span>
+
+            </div>
+
+            <div class="form-group  has-feedback *ng"
+                 [ngClass]="{'has-success' : login_password.valid, 'has-error' : !login_password.valid}">
+                <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-key"
+                                                           aria-hidden="true"></i></span>
+                    <input class="form-control" type="password" placeholder="Password" id="login_password" ngControl="login_password" required></div>
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                      [ngClass]="{'glyphicon-ok': login_password.valid, 'glyphicon-warning-sign': !login_password.valid}"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default  btn-lg btn-block" (click)="saveUser()"
+                        [disabled]="!loginForm.valid">로그인
+                </button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default  btn-lg btn-block" data-toggle="modal" data-target="#register">
+                    회원가입
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="registerLabel">회원가입</h4>
+            </div>
+            <div class="modal-body">
+               <register-form></register-form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default">Prev</button>
+                <button type="button" class="btn btn-default">Next</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

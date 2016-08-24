@@ -1,0 +1,79 @@
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" (click)="selectTab(1)" >기본정보</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" (click)="selectTab(2)">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" (click)="selectTab(3)">사진</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" (click)="selectTab(4)">가입인사</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <form class="form-horizontal" [ngFormModel]="registerForm">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="row center-block">
+                    <div class="col-sm-12">
+                        <div>
+                                <strong><h5>계정을 등록해보세요. <small>Beta!</small></h5></strong>
+                        </div>
+                        <div class="form-group has-feedback"
+                             [ngClass]="{'has-success' : register_loginId.valid, 'has-error' : !register_loginId.valid}">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-users"
+                                                                   aria-hidden="true"></i></span>
+                                <input class="form-control" type="text" placeholder="Login ID" id="register_loginId"
+                                       ngControl="register_loginId" required></div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"
+                                  [ngClass]="{'glyphicon-ok': register_loginId.valid, 'glyphicon-warning-sign': !register_loginId.valid}"></span>
+
+                        </div>
+
+                        <div class="form-group  has-feedback *ng"
+                             [ngClass]="{'has-success' : register_password.valid, 'has-error' : !register_password.valid}">
+                            <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-key"
+                                                           aria-hidden="true"></i></span>
+                                <input class="form-control" type="password" placeholder="Password" id="register_password"
+                                       ngControl="register_password" required></div>
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                                  [ngClass]="{'glyphicon-ok': register_password.valid, 'glyphicon-warning-sign': !register_password.valid}"></span>
+                        </div>
+
+                        <div class="form-group  has-feedback *ng"
+                             [ngClass]="{'has-success' : register_passwordConfirm.valid, 'has-error' : !register_passwordConfirm.valid}">
+                            <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-key"
+                                                           aria-hidden="true"></i></span>
+                                <input class="form-control" type="password" placeholder="Password Confirm" id="register_passwordConfirm"
+                                       ngControl="register_passwordConfirm" required></div>
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                                  [ngClass]="{'glyphicon-ok': register_passwordConfirm.valid, 'glyphicon-remove': !register_passwordConfirm.valid}"></span>
+                        </div>
+
+                        <div class="form-group  has-feedback *ng"
+                             [ngClass]="{'has-success' : register_email.valid, 'has-error' : !register_email.valid}">
+                            <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-email"
+                                                           aria-hidden="true"></i></span>
+                                <input class="form-control" type="email" placeholder="Email Address" id="register_email"
+                                       ngControl="register_email" required></div>
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                                  [ngClass]="{'glyphicon-ok': register_email.valid, 'glyphicon-remove': !register_email.valid}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+
+            </div>
+        </div>
+    </form>
+</div>
+
